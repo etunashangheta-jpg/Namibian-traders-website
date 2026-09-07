@@ -694,45 +694,73 @@
 
     <p class="note">Payment confirms your entry — registrations without payment remain unconfirmed.</p>
 
-    <form id="reg-form">
-      <div class="form-row">
-        <input type="text" id="runner-name" placeholder="Full name" required />
-        <input type="email" id="runner-email" placeholder="Email" required />
-      </div>
-      <div class="form-row">
-        <select id="runner-distance" required>
-          <option value="">Select distance</option>
-          <option>5 km</option>
-          <option>10 km</option>
-          <option>21.1 km</option>
-        </select>
-        <select id="runner-shirt">
-          <option value="">T-Shirt size (optional)</option>
-          <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>
-        </select>
-      </div>
+   <!--
+  Namibian Traders — Registration form (Web3Forms version)
+  Replace your old "Register — payment required" modal's <form> content
+  (and the "Simulate Pay" button + its JS) with this block.
 
-      <div style="margin:12px 0;">
-        <div class="muted">Payment</div>
-        <div class="form-row" style="margin-top:8px;">
-          <select id="payment-method" required>
-            <option value="">Choose payment method</option>
-            <option value="card">Card</option>
-            <option value="mobile-money">Mobile money</option>
-            <option value="pop">Proof of payment (upload)</option>
-          </select>
-          <input type="text" id="payment-ref" placeholder="Payment reference (if any)" />
-        </div>
-        <p class="muted" style="margin-top:8px;">This demo simulates a required payment step. Replace with your real gateway or POP verification.</p>
-      </div>
+  This submits directly to Web3Forms — no backend needed on your GitHub Pages site.
+  Every submission is emailed to namibiantrade161@namibiantraders.com automatically.
+-->
 
-      <div style="display:flex; gap:10px; margin-top:12px;">
-        <button type="button" id="pay-now" class="btn btn-primary">Simulate Pay</button>
-        <button type="button" id="complete-reg" class="btn btn-ghost disabled" disabled>Complete registration</button>
-      </div>
+<div class="modal" id="registerModal">
+  <div class="modal-content">
+    <span class="close">✕</span>
 
-      <p id="reg-result" class="note" style="margin-top:12px; display:none;"></p>
+    <h3>Complete registration</h3>
+    <p>We'll email your details to our team and follow up with payment instructions.</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+      <!-- Required: your Web3Forms Access Key -->
+      <input type="hidden" name="access_key" value="10b77015-5033-4dd9-8d6e-2b4a11097dab">
+
+      <!-- Makes the email easy to spot in the inbox -->
+      <input type="hidden" name="subject" value="New Race Registration — Namibian Traders">
+
+      <!-- Optional: sends runners to a thank-you page after submitting -->
+      <!-- <input type="hidden" name="redirect" value="https://namibiantraders.com/thank-you.html"> -->
+
+      <!-- Honeypot field — blocks basic spam bots, leave this as-is -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+      <label for="reg-name">Full name</label>
+      <input type="text" id="reg-name" name="Full Name" required>
+
+      <label for="reg-email">Email address</label>
+      <input type="email" id="reg-email" name="Email" required>
+
+      <label for="reg-phone">Phone number</label>
+      <input type="tel" id="reg-phone" name="Phone" required>
+
+      <label for="reg-distance">Select distance</label>
+      <select id="reg-distance" name="Distance" required>
+        <option value="">-- choose --</option>
+        <option value="5 km">5 km</option>
+        <option value="10 km">10 km</option>
+        <option value="21.1 km">21.1 km</option>
+      </select>
+
+      <label for="reg-shirt">T-Shirt size (optional)</label>
+      <select id="reg-shirt" name="T-Shirt Size">
+        <option value="">-- none --</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <p class="note">
+        Payment is not collected online yet. After you submit, our team will
+        email you with bank details to complete payment and confirm your entry.
+      </p>
+
+      <button type="submit">Submit registration</button>
     </form>
+
+  </div>
+</div>
   </div>
 </div>
 
@@ -763,38 +791,7 @@
     function closeModal(){
       backdrop.style.display = 'none';
       backdrop.setAttribute('aria-hidden','true');
-      regForm.reset();
-      regResult.style.display = 'none';
-    }
-
-    registerButtons.forEach(btn=>{
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const eventName = btn.dataset.event || '';
-        openModal(e, eventName);
-      });
-    });
-
-    headerRegister.addEventListener('click', function(e){
-      e.preventDefault();
-      openModal(e, '');
-    });
-
-    startSetup && startSetup.addEventListener('click', function(e){
-      e.preventDefault();
-      // simple behaviour: go to organisers section
-      document.getElementById('organisers').scrollIntoView({behavior:'smooth'});
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', function(e){
-      if(e.target === backdrop) closeModal();
-    });
-
-    // Payment simulation
-    payNow.addEventListener('click', function(){
-      // simulate payment processing delay
-      payNow.textContent = 'Processing…';
+     
       payNow.disabled = true;
       setTimeout(function(){
         // set a flag in localStorage to simulate a completed payment for this session.
