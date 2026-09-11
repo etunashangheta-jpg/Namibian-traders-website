@@ -473,6 +473,8 @@ button, .btn, .register-btn, .shop-add, .nav-toggle, .nav-cart, .cart-close {
 }
 
   </style>
+<!-- EmailJS — sends a confirmation email to the registrant (Web3Forms free plan only notifies the site owner) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -632,30 +634,54 @@ button, .btn, .register-btn, .shop-add, .nav-toggle, .nav-cart, .cart-close {
 <section class="races-section" id="races">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Upcoming</div>
-      <h2>Races open for entry</h2>
+      <div class="eyebrow">2026 Calendar</div>
+      <h2>Namibian Traders Race &amp; Challenge Calendar</h2>
+      <p style="color:var(--text-dim); font-size:14px; margin-top:8px;">September → October → November → December — different distances, different experiences, different people. One Namibian Traders community. Move. Connect. Inspire.</p>
     </div>
     <div class="race-grid">
       <div class="race-card">
-        <div class="race-date">14 Mar 2026 — Windhoek</div>
-        <h3>Windhoek City Half Marathon</h3>
-        <div class="race-loc">Independence Ave start, Zoo Park finish</div>
-        <div class="race-dist"><span class="pill">5 km</span><span class="pill">10 km</span><span class="pill">21.1 km</span></div>
-        <a href="#" class="register-btn" data-event="Windhoek City Half Marathon">Register now →</a>
+        <div class="race-date">13–19 Sep 2026 — Virtual</div>
+        <h3>7 Days of Power</h3>
+        <div class="race-loc">100% virtual challenge — anywhere, any time</div>
+        <div class="race-dist"><span class="pill">Min. 30 min/day</span><span class="pill">7 days</span></div>
+        <p style="font-size:13px; color:var(--text-dim); margin:6px 0 14px;">Any activity counts — run, walk, cycle, swim, gym, dance, yoga, HIIT, ball sports or any other form of movement.</p>
+        <a href="#" class="register-btn" data-event="7 Days of Power">Register now →</a>
       </div>
       <div class="race-card">
-        <div class="race-date">02 May 2026 — Swakopmund</div>
-        <h3>Swakopmund Coastal 10K</h3>
-        <div class="race-loc">Jetty start, along the promenade</div>
-        <div class="race-dist"><span class="pill">5 km</span><span class="pill">10 km</span></div>
-        <a href="#" class="register-btn" data-event="Swakopmund Coastal 10K">Register now →</a>
+        <div class="race-date">Sat, 26 Sep 2026 — Windhoek</div>
+        <h3>The Herman Maritz Commemorative Race</h3>
+        <div class="race-loc">Promoting road safety awareness, honouring the life and legacy of Herman Maritz</div>
+        <div class="race-dist"><span class="pill">5 km Run/Walk</span><span class="pill">10 km Run/Walk</span><span class="pill">15 km Run</span><span class="pill">20 km Cycle</span><span class="pill">40 km Cycle</span></div>
+        <a href="#" class="register-btn" data-event="The Herman Maritz Commemorative Race">Register now →</a>
       </div>
       <div class="race-card">
-        <div class="race-date">21 Jun 2026 — Okahandja</div>
-        <h3>Okahandja Trail Run</h3>
-        <div class="race-loc">Von Bach Dam Recreation Resort</div>
-        <div class="race-dist"><span class="pill">8 km</span><span class="pill">15 km</span></div>
-        <a href="#" class="register-btn" data-event="Okahandja Trail Run">Register now →</a>
+        <div class="race-date">Fri, 9 Oct 2026 — Windhoek</div>
+        <h3>Retro Glow Night Race</h3>
+        <div class="race-loc">Glow in the dark. 70s dress theme. A completely different night race experience.</div>
+        <div class="race-dist"><span class="pill">5 km Run/Walk</span><span class="pill">10 km Run</span><span class="pill">20 km Cycle</span></div>
+        <a href="#" class="register-btn" data-event="Retro Glow Night Race">Register now →</a>
+      </div>
+      <div class="race-card">
+        <div class="race-date">1–30 Nov 2026 — Virtual</div>
+        <h3>The 30 Day Rope Rush</h3>
+        <div class="race-loc">100% virtual challenge — 30 days of consistency, daily motivation and community support</div>
+        <div class="race-dist"><span class="pill">30-day skipping challenge</span><span class="pill">Alt: 1 km run/walk daily</span><span class="pill">Alt: 1 km cycle daily</span></div>
+        <p style="font-size:13px; color:var(--text-dim); margin:6px 0 14px;">Can't skip? Run, walk or cycle a minimum of 1 km every day instead — exceeding the minimum is always welcome.</p>
+        <a href="#" class="register-btn" data-event="The 30 Day Rope Rush">Register now →</a>
+      </div>
+      <div class="race-card">
+        <div class="race-date">Sat, 28 Nov 2026 — Windhoek</div>
+        <h3>Summer Starts Here</h3>
+        <div class="race-loc">Finisher medals for all finishers. Virtual participation available for those outside Windhoek.</div>
+        <div class="race-dist"><span class="pill">5 km Run/Walk</span><span class="pill">10 km Run/Walk</span><span class="pill">15 km Run</span><span class="pill">21 km Run</span><span class="pill">20 km Cycle</span><span class="pill">60 km Cycle</span></div>
+        <a href="#" class="register-btn" data-event="Summer Starts Here">Register now →</a>
+      </div>
+      <div class="race-card">
+        <div class="race-date">Sat, 5 Dec 2026 — Von Bach Dam</div>
+        <h3>The Von Bach Experience</h3>
+        <div class="race-loc">A destination race experience bringing together running, walking, cycling, community and purpose</div>
+        <div class="race-dist"><span class="pill">5 km</span><span class="pill">10 km</span><span class="pill">15 km</span><span class="pill">21 km</span><span class="pill">20 km Cycle</span><span class="pill">60 km Cycle</span><span class="pill">100 km Cycle</span></div>
+        <a href="#" class="register-btn" data-event="The Von Bach Experience">Register now →</a>
       </div>
     </div>
   </div>
@@ -813,7 +839,7 @@ button, .btn, .register-btn, .shop-add, .nav-toggle, .nav-cart, .cart-close {
       <button id="modal-close" aria-label="Close" style="background:none;border:0;color:var(--text);font-size:20px;cursor:pointer;">✕</button>
     </div>
 
-    <p class="note">We'll email your details to our team and follow up with payment instructions.</p>
+    <p class="note">You'll receive a confirmation email, and our team will follow up with payment instructions.</p>
 
     <form id="reg-form" action="https://api.web3forms.com/submit" method="POST">
       <!-- Web3Forms access key -->
@@ -855,6 +881,24 @@ button, .btn, .register-btn, .shop-add, .nav-toggle, .nav-cart, .cart-close {
   // ---------- Registration + mobile navigation ----------
   (function(){
     'use strict';
+
+    // ===== EmailJS config — replace with your own EmailJS account details =====
+    // 1. Create a free account at https://www.emailjs.com (200 emails/month free)
+    // 2. Add an Email Service (e.g. connect your Gmail) -> copy the Service ID below
+    // 3. Create a Template addressed to {{to_email}} (the runner) with a confirmation
+    //    message, using {{runner_name}}, {{event_name}}, {{distance}} as variables
+    //    -> copy the Template ID below
+    // 4. Account > General > copy your Public Key below
+    var EMAILJS_PUBLIC_KEY  = '0Q-dyZ5PDWeGLADpg';
+    var EMAILJS_SERVICE_ID  = 'service_aw4ghrq';
+    var EMAILJS_TEMPLATE_ID = 'template_gtmanpx';
+    var emailjsReady = false;
+    try {
+      if (window.emailjs && EMAILJS_PUBLIC_KEY.indexOf('YOUR_') !== 0) {
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        emailjsReady = true;
+      }
+    } catch (err) { /* EmailJS not configured yet */ }
 
     var backdrop = document.getElementById('modal-backdrop');
     var closeBtn = document.getElementById('modal-close');
@@ -937,6 +981,23 @@ button, .btn, .register-btn, .shop-add, .nav-toggle, .nav-cart, .cart-close {
 
           if (data.success) {
             regResult.textContent = 'Registration received. A confirmation email will follow shortly.';
+
+            // Send a confirmation email to the runner (in addition to the
+            // admin notification Web3Forms already sent above)
+            if (emailjsReady) {
+              var runnerEmail = document.getElementById('runner-email');
+              var runnerName = document.getElementById('runner-name');
+              var runnerDistance = document.getElementById('runner-distance');
+              emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                to_email: runnerEmail ? runnerEmail.value : '',
+                runner_name: runnerName ? runnerName.value : '',
+                event_name: eventInput ? eventInput.value : '',
+                distance: runnerDistance ? runnerDistance.value : ''
+              }).catch(function(err){
+                console.warn('Confirmation email failed to send:', err);
+              });
+            }
+
             setTimeout(closeModal, 1800);
           } else {
             regResult.textContent = 'Something went wrong. Please try again or email us directly.';
